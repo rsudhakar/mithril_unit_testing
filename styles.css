@@ -1,0 +1,10 @@
+.container {
+  border: 1px solid grey;
+  box-sizing: border-box;
+  width: 300px;
+}
+
+.container .header {
+    padding: 20px;
+    text-align: center;
+  }
