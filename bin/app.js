@@ -2344,6 +2344,13 @@
 	        "div",
 	        { "class": "items" },
 	        this.getItems()
+	      ),
+	      m(
+	        "div",
+	        { "class": "summary" },
+	        "Total : ",
+	        data.total(),
+	        "/-"
 	      )
 	    );
 	  },
@@ -2364,7 +2371,13 @@
 	'use strict';
 	
 	module.exports = {
-	  items: [{ sku: '1233243455', name: 'Ring', cost: 6700 }, { sku: '1232141244', name: 'Coin 1g', cost: 3300 }]
+	  items: [{ sku: '1233243455', name: 'Ring', cost: 6720 }, { sku: '1232141244', name: 'Coin 1g', cost: 3400 }],
+	
+	  total: function total() {
+	    return this.items.reduce(function (total, item) {
+	      return total + item.cost;
+	    }, 0);
+	  }
 	};
 
 /***/ },
@@ -2383,13 +2396,8 @@
 	    return data;
 	  },
 	  view: function view(data) {
-	    return m(
-	      "div",
-	      null,
-	      data.name,
-	      " for ",
-	      data.cost
-	    );
+	    // return <div class="item"><b>{data.name}</b> : {data.cost}/-</div>
+	    return m(".item", [m("b", data.name), " : " + data.cost + "/-"]);
 	  }
 	};
 

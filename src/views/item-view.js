@@ -5,6 +5,9 @@ module.exports = {
     return data
   },
   view: function(data) {
-    return <div>{data.name} for {data.cost}</div>
+    // return <div class="item"><b>{data.name}</b> : {data.cost}/-</div>
+    return m(".item",[
+      m("b", data.name), ` : ${data.cost}/-`
+    ])
   }
 }

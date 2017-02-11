@@ -9,6 +9,9 @@ module.exports = {
       <div class="items">
         {this.getItems()}
       </div>
+      <div class="summary">
+        Total : {data.total()}/-
+      </div>
     </div>
   },
   getItems() {
